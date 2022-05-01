@@ -18,7 +18,7 @@ export class CharacterSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/vtmv5/dist/templates/character.hbs`;
+    return `systems/vtmv5/dist/templates/kindred.hbs`;
   }
 
   get actorData() {

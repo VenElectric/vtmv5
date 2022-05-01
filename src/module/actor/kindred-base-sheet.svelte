@@ -1,6 +1,7 @@
 <script lang="ts">
   export let sheetData: ActorSheet.Data;
   import { LocalizationStrings, KindredBase } from "./types";
+  import ProfileImage from "./components/profile-image.svelte";
 
   const data = sheetData.data.data as KindredBase;
   console.log(sheetData);
@@ -9,42 +10,66 @@
     (game as Game).i18n.localize(string);
 </script>
 
-<div class="flex-row">
-  <div class="flex-group-center">
-    <label class="resource-label" for="name">{localize(LocalizationStrings.NAME)}</label>
-    <input type="text" name="name" value={sheetData.actor.name} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="concept">{localize(LocalizationStrings.Concept)}</label>
-    <input type="text" name="concept" value={data.concept} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="predator">{localize(LocalizationStrings.Predator)}</label>
-    <input type="text" name="predator" value={data.predator} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="chronicle">{localize(LocalizationStrings.Chronicle)}</label>
-    <input type="text" name="chronicle" value={data.chronicle} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="ambition">{localize(LocalizationStrings.Ambition)}</label>
-    <input type="text" name="ambition" value={data.ambition} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="clan">{localize(LocalizationStrings.Clan)}</label>
-    <input type="text" name="clan" value={data.clan} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="sire">{localize(LocalizationStrings.Sire)}</label>
-    <input type="text" name="sire" value={data.sire} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="desire">{localize(LocalizationStrings.Desire)}</label>
-    <input type="text" name="desire" value={data.desire} />
-  </div>
-  <div class="flex-group-center">
-    <label class="resource-label" for="generation">{localize(LocalizationStrings.Generation)}</label>
-    <input type="text" name="generation" value={data.generation} />
+<div class="standard-information">
+  <ProfileImage
+    actorImage={sheetData.actor.img}
+    actorName={sheetData.actor.name}
+  />
+  <div class="flex-row">
+    <div class="flex-group-center">
+      <label class="resource-label" for="name"
+        >{localize(LocalizationStrings.NAME)}</label
+      >
+      <input type="text" name="name" value={sheetData.actor.name} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="concept"
+        >{localize(LocalizationStrings.Concept)}</label
+      >
+      <input type="text" name="concept" value={data.concept} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="predator"
+        >{localize(LocalizationStrings.Predator)}</label
+      >
+      <input type="text" name="predator" value={data.predator} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="chronicle"
+        >{localize(LocalizationStrings.Chronicle)}</label
+      >
+      <input type="text" name="chronicle" value={data.chronicle} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="ambition"
+        >{localize(LocalizationStrings.Ambition)}</label
+      >
+      <input type="text" name="ambition" value={data.ambition} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="clan"
+        >{localize(LocalizationStrings.Clan)}</label
+      >
+      <input type="text" name="clan" value={data.clan} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="sire"
+        >{localize(LocalizationStrings.Sire)}</label
+      >
+      <input type="text" name="sire" value={data.sire} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="desire"
+        >{localize(LocalizationStrings.Desire)}</label
+      >
+      <input type="text" name="desire" value={data.desire} />
+    </div>
+    <div class="flex-group-center">
+      <label class="resource-label" for="generation"
+        >{localize(LocalizationStrings.Generation)}</label
+      >
+      <input type="text" name="generation" value={data.generation} />
+    </div>
   </div>
 </div>
 
@@ -82,5 +107,9 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 1em;
+  }
+  .standard-information {
+    display: flex;
+    justify-content: space-evenly;
   }
 </style>

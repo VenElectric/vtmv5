@@ -1,7 +1,6 @@
 import MortalBaseSheet from "./mortal-base-sheet.svelte"
-import { CharacterSheet } from "./character-sheet";
 
-export class MortalSheet extends CharacterSheet {
+export class MortalSheet extends ActorSheet {
 	app: any;
 	constructor(actor, options) {
 		super(actor, options);
@@ -17,22 +16,22 @@ export class MortalSheet extends CharacterSheet {
 
 	/** @override */
 	get template() {
-		return `systems/vtmv5/dist/templates/character.hbs`;
+		return `systems/vtmv5/dist/templates/mortal.hbs`;
 	}
 
 	get actorData() {
-		console.log(this.actor.data);
 		return this.actor.data;
 	}
 
 	getData() {
 		const data = super.getData();
-		console.log(data);
 		return data;
 	}
 
 	// Injects Svelte app when initializing HTML
 	async _injectHTML(html) {
+		console.log(html, "replaceHTml");
+		console.log(html.find("mortal-form"))
 		await super._injectHTML(html);
 		this.app = new MortalBaseSheet({
 			target: html.find("form")[0],
