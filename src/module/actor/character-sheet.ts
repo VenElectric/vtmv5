@@ -1,8 +1,9 @@
 import FormApp from "./character-sheet.svelte"
+import type { KindredBase } from "./types";
 
 export class CharacterSheet extends ActorSheet {
 	app: any;
-
+	data: KindredBase; 
 	constructor(actor, options) {
 		super(actor, options);
 		this.app = null;

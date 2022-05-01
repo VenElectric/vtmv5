@@ -349,7 +349,7 @@
       "templates": ["base"]
     },
     "kindred": {
-      "templates": ["base"]
+      "templates": ["base","kindred-base"]
     },
     "ghoul": {
       "templates": ["base"]

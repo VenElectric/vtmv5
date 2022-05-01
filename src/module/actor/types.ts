@@ -30,3 +30,114 @@ export enum LocalizationStrings {
   Composure = "VTM.composure",
   Resolve = "VTM.resolve",
 }
+
+export interface BaseInterface {
+  true_age : number;
+  gender: string;
+  ambition: string;
+  desire: string;
+  concept: string;
+  chronicle: string;
+  total_experience: number;
+  spent_experience: number;
+  date_of_birth: string;
+  distinguishing_features: string;
+  notes: string;
+  health: {
+    value: number;
+    superficial: number;
+    aggravated: number;
+  };
+  willpower: {
+    value: number;
+    superficial: number; 
+    aggravated: number;
+  }
+}
+
+export interface KindredBase extends BaseInterface {
+        predator: PredatorTypes;
+        sire: string;
+        clan: ClanTypes;
+        generation: string;
+        humanity: number;
+        hunger: number;
+        apparent_age: number;
+        date_of_death: string;
+        coterie_type: number;
+        coterie_name: string;
+        compulsions: string[];
+        appearance: string;
+        blood_potency: {
+          level: number;
+          blood_surge: number;
+          mend_amount: string;
+          power_bonus: string;
+          feeding_penalty: string;
+          bane_severity: string;
+          rouse_re_roll: string; 
+        };
+        predator_roll: {
+          trait: string;
+          skill: string;
+        };
+        blood_bond: {
+          value: number;
+          bonded_to: string;
+        };
+        boons: string[]
+}
+
+export enum PredatorTypes {
+  Alleyat = "Alleycat",
+  Bagger = "Bagger",
+  Blood_Leech = "Blood Leech",
+  Cleaver = "Cleaver",
+  Consensualist = "Consensualist",
+  Farmer = "Farmer",
+  Osiris = "Osiris",
+  Sandman = "Sandman",
+  Scene_Quene = "Scene Queen",
+  Siren = "Siren",
+  Extortionist = "Extortionist",
+  Grave_Robber = "Graverobber"
+}
+
+export enum ClanTypes {
+  Tremere = "Tremere", 
+  Brujah = "Brujah",
+  Gangrel = "Gangrel",
+  Malkavian = "Malkavian",
+  Nosferatu = "Nosferatu",
+  Toreador = "Toreador",
+  Ventrue = "Ventrue",
+  Caitiff = "Caitiff",
+  Thin_Blood = "Thin-Blooded",
+  Tzimisce = "Tzimisce",
+  Ministry = "The Ministry",
+  Lasombra = "Lasombra",
+  Hecata = "Hecata",
+  Salubri = "Salubri",
+  Ravnos = "Ravnos",
+  Banu_Haqim = "Banu Haqim",
+
+}
+
+// todo
+export enum CoterieTypes {
+  test = "test"
+}
+
+// todo
+export enum CompulsionTypes {
+  compulsion = "compulsion"
+}
+
+// todo
+export enum TraitTypes {
+  Strength = "Strength"
+}
+
+export enum SkillTypes {
+  Manipulation = "Manipulation"
+}
