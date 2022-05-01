@@ -1,3 +1,9 @@
+const gameString = "VMT."
+
+function createString(value: string): string{
+  return `${gameString}${value}`
+}
+
 export enum LocalizationStrings {
   NAME = "NAME",
   TRUE_AGE = "VTM.true_age",
@@ -29,10 +35,15 @@ export enum LocalizationStrings {
   Stamina = "VTM.stamina",
   Composure = "VTM.composure",
   Resolve = "VTM.resolve",
+  Demeanor = "VTM.demeanor",
+  Age = "Age",
+  Residence = "Residence"
+
 }
 
 export interface BaseInterface {
   true_age : number;
+  player: string;
   gender: string;
   ambition: string;
   desire: string;
@@ -40,6 +51,8 @@ export interface BaseInterface {
   chronicle: string;
   total_experience: number;
   spent_experience: number;
+  residence: string;
+  demeanor: string;
   date_of_birth: string;
   distinguishing_features: string;
   notes: string;

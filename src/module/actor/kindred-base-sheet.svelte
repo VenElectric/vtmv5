@@ -47,16 +47,8 @@
     <input type="text" name="generation" value={data.generation} />
   </div>
 </div>
+
 <br />
-
-<p class="footer">
-  Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how
-  to build Svelte apps.
-</p>
-
-{#each Array(5) as _, i}
-  <li style="border-radius:50%" keyparams={String(i)}>Test {i}</li>
-{/each}
 
 <style>
   :global(.character) {
@@ -82,9 +74,9 @@
     margin-bottom: 1rem;
   } */
 
-  .footer {
+  /* .footer {
     text-align: center;
-  }
+  } */
 
   .flex-row {
     display: grid;

@@ -10,7 +10,12 @@
     ],
     "templates": {
       "base": {
+        "isNpc": false,
+        "relations": [],
         "true_age": 0,
+        "player": "",
+        "demeanor": "",
+        "residence": "",
         "gender": "",
         "ambition": "",
         "desire": "",
@@ -346,19 +351,19 @@
       "templates": ["base"]
     },
     "mortal": {
-      "templates": ["base"]
+      "templates": ["base", "advantages", "flaws"]
     },
     "kindred": {
-      "templates": ["base","kindred-base"]
+      "templates": ["base","kindred-base", "advantages", "flaws", "disciplines", "bloodlines", "loresheets", "predator_type"]
     },
     "ghoul": {
-      "templates": ["base"]
+      "templates": ["base","advantages", "flaws"]
     },
     "touchstone": {
-      "templates": ["base"]
+      "templates": ["base","advantages", "flaws"]
     },
     "coterie": {
-      "templates": ["base"]
+      "templates": ["coterie", "advantages", "flaws"]
     }
   },
   "Items": {
