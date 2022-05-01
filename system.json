@@ -6,13 +6,13 @@
   "version": 0.01,
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9.0",
-  "esmodules": ["main.mjs"],
-  "styles": ["main.css"],
+  "esmodules": ["./dist/main.mjs"],
+  "styles": ["./dist/main.css"],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "./dist/lang/en.json"
     }
   ],
   "gridDistance": 5,

@@ -3,14 +3,93 @@
     "types": [
       "character",
       "kindred",
-      "mortal",
       "ghoul",
       "touchstone",
+      "mortal",
       "coterie"
     ],
     "templates": {
       "base": {
-        "name": ""
+        "true_age": 0,
+        "gender": "",
+        "ambition": "",
+        "desire": "",
+        "concept": "",
+        "chronicle": "",
+        "total_experience": 0,
+        "spent_experience": 0,
+        "date_of_birth": "",
+        "distinguishing_features": "",
+        "notes": "",
+        "health": {
+          "value": 0,
+          "superficial": 0,
+          "aggravated": 0
+        },
+        "willpower": {
+          "value": 0,
+          "superficial": 0,
+          "aggravated": 0
+        }
+      },
+      "kindred-base": {
+        "predator": "",
+        "sire": "",
+        "clan": "",
+        "generation": "",
+        "humanity": 0,
+        "hunger": 0,
+        "apparent_age": 0,
+        "date_of_death": "",
+        "coterie_type": "",
+        "coterie_name": "",
+        "compulsions": [],
+        "appearance": "",
+        "blood_potency": {
+          "level": 0,
+          "blood_surge": "",
+          "mend_amount": "",
+          "power_bonus": "",
+          "feeding_penalty": "",
+          "bane_severity": "",
+          "rouse_re_roll": ""
+        },
+        "predator_roll": {
+          "trait": "",
+          "skill": ""
+        },
+        "blood_bond": {
+          "value": 0,
+          "bonded_to": ""
+        },
+        "boons": []
+      },
+      "coterie": {
+        "name": "",
+        "type": "",
+        "goal": "",
+        "members": [],
+        "shared_backgrounds": [],
+        "merits": [],
+        "flaws": [],
+        "overview": "",
+        "domain": {
+          "name": "",
+          "location": "",
+          "sect": "",
+          "chase": 0,
+          "lien:": 0,
+          "portillon": 0,
+          "overview": ""
+        },
+        "haven": {
+          "name": "",
+          "location": "",
+          "building": "",
+          "merits": [],
+          "flaws": [],
+          "overview": ""
+        }
       },
       "disciplines": {
         "template": {
@@ -266,11 +345,21 @@
     "character": {
       "templates": ["base"]
     },
-    "mortal": {},
-    "kindred": {},
-    "ghoul": {},
-    "touchstone": {},
-    "coterie": {}
+    "mortal": {
+      "templates": ["base"]
+    },
+    "kindred": {
+      "templates": ["base"]
+    },
+    "ghoul": {
+      "templates": ["base"]
+    },
+    "touchstone": {
+      "templates": ["base"]
+    },
+    "coterie": {
+      "templates": ["base"]
+    }
   },
   "Items": {
     "types": ["weapon", "gear", "supernatural"],

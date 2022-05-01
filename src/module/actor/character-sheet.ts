@@ -1,32 +1,34 @@
-import FormApp from "./character-sheet.svelte";
+import FormApp from "./character-sheet.svelte"
 
 export class CharacterSheet extends ActorSheet {
-	constructor(data, options) {
-		super(data, options);
+	app: any;
+
+	constructor(actor, options) {
+		super(actor, options);
 		this.app = null;
 	}
 
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ["kindred", "sheet", "actor"],
+			classes: ["vtmv5", "sheet", "actor", "kindred"],
 		});
 	}
 
 	/** @override */
 	get template() {
-		return `systems/vtmv5/templates/character.hbs`;
+		return `systems/vtmv5/dist/templates/character.hbs`;
 	}
 
 	get actorData() {
+		console.log(this.actor.data);
 		return this.actor.data;
 	}
 
 	getData() {
-		return {
-			actor: this.actorData,
-			data: this.actorData.toObject().data,
-		};
+		const data = super.getData();
+		console.log(data);
+		return data;
 	}
 
 	// Injects Svelte app when initializing HTML

@@ -24,6 +24,10 @@ export default {
 				dev: !production,
 			},
 		}),
+		typescript({
+			sourceMap: !production,
+			inlineSources: !production
+		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: "main.css" }),
@@ -37,12 +41,7 @@ export default {
 			browser: true,
 			dedupe: ["svelte"],
 		}),
-		typescript({
-			sourceMap: !production,
-			inlineSources: !production
-		}),
 		commonjs(),
-
 		copy({
 			targets: [{ src: ["./src/*", "!./src/module"], dest: "./dist" }],
 			copyOnce: true,
