@@ -6,6 +6,8 @@ import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy-watch";
 import typescript from "@rollup/plugin-typescript";
+import preprocess from 'svelte-preprocess';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -22,7 +24,9 @@ export default {
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production,
+				
 			},
+			preprocess: preprocess()
 		}),
 		typescript({
 			sourceMap: !production,

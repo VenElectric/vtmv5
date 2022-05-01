@@ -1,16 +1,36 @@
 <script lang="ts">
-  export let sheetData;
+  export let sheetData: ActorSheet.Data;
   import { LocalizationStrings } from "./types";
   
   const data = sheetData.data
-  console.log(data);
+  console.log(sheetData);
   
   const localize = (string: LocalizationStrings) => (game as Game).i18n.localize(string);
 
 </script>
 
+  <div>
+    <label for="name">{localize(LocalizationStrings.NAME)}</label>
+    <input type="text" name="name" value="{sheetData.actor.name}" />
+    <label for="concept">{localize(LocalizationStrings.Concept)}</label>
+    <input type="text" name="concept" value="{data.concept}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+    <label><{localize(LocalizationStrings)}/label>
+    <input type="text" name="" value="{data.}" />
+    <label>{localize(LocalizationStrings)}</label>
+    <input type="text" name="" value="{data.}" />
+  </div>
 	<label for="name">{localize(LocalizationStrings.NAME)}</label>
-	<input type="text" name="name" value="{data.name}"/>
+	<input type="text" name="name" value="{sheetData.actor.name}"/>
 
   <label for="health">{localize(LocalizationStrings.Health)}</label>
   <input
@@ -65,4 +85,5 @@
   .footer {
     text-align: center;
   }
+
 </style>
