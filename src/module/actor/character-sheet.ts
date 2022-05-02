@@ -1,5 +1,7 @@
 import KindredBaseSheet from "./kindred-base-sheet.svelte";
 import type { KindredBase } from "./types";
+import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/module.mjs";
+
 
 export class CharacterSheet extends ActorSheet {
   app: any;
@@ -22,14 +24,14 @@ export class CharacterSheet extends ActorSheet {
   }
 
   get actorData() {
-    console.log(this.actor.data);
     return this.actor.data;
   }
-
-  getData() {
-    const data = super.getData();
-    console.log(data);
-    return data;
+ 
+  getDataObject(): {actor: ActorData, data: KindredBase} {
+    return {
+      actor: this.actorData,
+      data: this.actorData.toObject().data as KindredBase,
+    };
   }
 
   // Injects Svelte app when initializing HTML
@@ -38,18 +40,20 @@ export class CharacterSheet extends ActorSheet {
     this.app = new KindredBaseSheet({
       target: html.find("form")[0],
       props: {
-        sheetData: this.getData() as ActorSheet.Data,
+        sheetData: this.getDataObject(),
       },
     });
   }
 
   // Injects Svelte app when replacing innerHTML
   async _replaceHTML(element, html) {
+    console.log(element, "element")
+    console.log(html, "html")
     await super._replaceHTML(element, html);
     this.app = new KindredBaseSheet({
       target: html.find("form")[0],
       props: {
-        sheetData: this.getData() as ActorSheet.Data,
+        sheetData: this.getDataObject(),
       },
     });
   }

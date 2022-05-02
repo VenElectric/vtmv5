@@ -1,77 +1,99 @@
 <script lang="ts">
-  export let sheetData: ActorSheet.Data;
+  export let sheetData: { actor: ActorData; data: KindredBase };
   import { LocalizationStrings, KindredBase } from "./types";
   import ProfileImage from "./components/profile-image.svelte";
+  import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/module.mjs";
+import DisciplineList from "./components/kindred/DisciplineList.svelte";
 
-  const data = sheetData.data.data as KindredBase;
+  const { actor, data } = sheetData;
   console.log(sheetData);
+
+  console.log(actor.token);
 
   const localize = (string: LocalizationStrings) =>
     (game as Game).i18n.localize(string);
 </script>
 
 <div class="standard-information">
-  <ProfileImage
-    actorImage={sheetData.actor.img}
-    actorName={sheetData.actor.name}
-  />
+  <ProfileImage actorImage={actor.img} actorName={actor.name} />
   <div class="flex-row">
-    <div class="flex-group-center">
-      <label class="resource-label" for="name"
-        >{localize(LocalizationStrings.NAME)}</label
-      >
-      <input type="text" name="name" value={sheetData.actor.name} />
-    </div>
     <div class="flex-group-center">
       <label class="resource-label" for="concept"
         >{localize(LocalizationStrings.Concept)}</label
       >
-      <input type="text" name="concept" value={data.concept} />
+      <input
+        type="text"
+        id="concept"
+        name="data.concept"
+        bind:value={data.concept}
+      />
     </div>
     <div class="flex-group-center">
       <label class="resource-label" for="predator"
         >{localize(LocalizationStrings.Predator)}</label
       >
-      <input type="text" name="predator" value={data.predator} />
+      <input
+        type="text"
+        id="predator"
+        name="data.predator"
+        value={data.predator}
+      />
     </div>
     <div class="flex-group-center">
       <label class="resource-label" for="chronicle"
         >{localize(LocalizationStrings.Chronicle)}</label
       >
-      <input type="text" name="chronicle" value={data.chronicle} />
+      <input
+        type="text"
+        id="chronicle"
+        name="data.chronicle"
+        value={data.chronicle}
+      />
     </div>
     <div class="flex-group-center">
       <label class="resource-label" for="ambition"
         >{localize(LocalizationStrings.Ambition)}</label
       >
-      <input type="text" name="ambition" value={data.ambition} />
+      <input
+        type="text"
+        id="ambition"
+        name="data.ambition"
+        value={data.ambition}
+      />
     </div>
     <div class="flex-group-center">
       <label class="resource-label" for="clan"
         >{localize(LocalizationStrings.Clan)}</label
       >
-      <input type="text" name="clan" value={data.clan} />
+      <input type="text" id="clan" name="data.clan" value={data.clan} />
     </div>
     <div class="flex-group-center">
       <label class="resource-label" for="sire"
         >{localize(LocalizationStrings.Sire)}</label
       >
-      <input type="text" name="sire" value={data.sire} />
+      <input type="text" id="sire" name="data.sire" value={data.sire} />
     </div>
     <div class="flex-group-center">
-      <label class="resource-label" for="desire"
-        >{localize(LocalizationStrings.Desire)}</label
-      >
-      <input type="text" name="desire" value={data.desire} />
+      <label class="resource-label" for="desire">
+        {localize(LocalizationStrings.Desire)}
+      </label>
+      <input type="text" id="desire" name="data.desire" value={data.desire} />
     </div>
     <div class="flex-group-center">
-      <label class="resource-label" for="generation"
-        >{localize(LocalizationStrings.Generation)}</label
-      >
-      <input type="text" name="generation" value={data.generation} />
+      <label class="resource-label" for="generation">
+        {localize(LocalizationStrings.Generation)}
+      </label>
+      <input
+        type="text"
+        id="generation"
+        name="data.generation"
+        value={data.generation}
+      />
     </div>
   </div>
 </div>
+
+
 
 <br />
 

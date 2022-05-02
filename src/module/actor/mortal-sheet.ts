@@ -1,4 +1,6 @@
+import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs";
 import MortalBaseSheet from "./mortal-base-sheet.svelte"
+import type { BaseInterface, KindredBase } from "./types";
 
 export class MortalSheet extends ActorSheet {
 	app: any;
@@ -23,10 +25,12 @@ export class MortalSheet extends ActorSheet {
 		return this.actor.data;
 	}
 
-	getData() {
-		const data = super.getData();
-		return data;
-	}
+	getDataObject(): {actor: ActorData, data: BaseInterface} {
+		return {
+		  actor: this.actorData,
+		  data: this.actorData.toObject().data as BaseInterface,
+		};
+	  }
 
 	// Injects Svelte app when initializing HTML
 	async _injectHTML(html) {
@@ -36,7 +40,7 @@ export class MortalSheet extends ActorSheet {
 		this.app = new MortalBaseSheet({
 			target: html.find("form")[0],
 			props: {
-				sheetData: this.getData() as ActorSheet.Data,
+				sheetData: this.getDataObject(),
 			},
 		});
 	}
@@ -47,7 +51,7 @@ export class MortalSheet extends ActorSheet {
 		this.app = new MortalBaseSheet({
 			target: html.find("form")[0],
 			props: {
-				sheetData: this.getData() as ActorSheet.Data,
+				sheetData: this.getDataObject()
 			},
 		});
 	}
