@@ -2,28 +2,34 @@
   export let actorImage;
   export let actorName;
 
-
   const filePicker = new FilePicker({
     type: "image",
-    activeSource: "data",
-    callback: () => {
-      (path: string) => {
-        actorImage = path;
-      };
-    },
+    activeSource:"public",
+    callback: (path: string) => {
+    actorImage = path},
+    field: document.getElementsByTagName("img")[0],
+    button: document.getElementsByTagName("img")[0]
   });
+
+  // filePicker.type = "image";
+  // filePicker.activeSource = "data";
+  // filePicker.callback = (path: string) => {
+  //   actorImage = path;
+  // };
+  // filePicker.field = document.getElementsByTagName("img")[0]
+
 </script>
 
 <header class="sheet-header">
   <img
     class="profile-img"
+    name="img"
     data-edit="img"
-    data-type="image"
     src={actorImage}
     title={actorName}
     alt="Profile"
     width="200px"
-    on:click={() => filePicker.render()}
+    on:click={() => filePicker.render(true)}
   />
   <h1>
     <input type="text" name="name" value={actorName} placeholder="Name" />

@@ -12,15 +12,15 @@
       "base": {
         "isNpc": false,
         "traits": {
-          "strength": 0,
-          "dexterity": 0,
-          "stamina": 0,
-          "charisma": 0,
-          "resolve": 0,
-          "manipulation": 0,
-          "intelligence": 0,
-          "wits": 0,
-          "composure": 0
+          "Strength": 0,
+          "Dexterity": 0,
+          "Stamina": 0,
+          "Charisma": 0,
+          "Resolve": 0,
+          "Manipulation": 0,
+          "Intelligence": 0,
+          "Wits": 0,
+          "Composure": 0
         },
         "relations": [],
         "true_age": 0,

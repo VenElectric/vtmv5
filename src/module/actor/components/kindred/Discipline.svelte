@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Power from ".../power.svelte";
+  import Power from "./power.svelte";
   export let record;
 </script>
 

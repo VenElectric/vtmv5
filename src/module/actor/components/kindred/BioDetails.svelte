@@ -3,5 +3,5 @@
 </script>
 
 <div>
-    
+    Biography
 </div>

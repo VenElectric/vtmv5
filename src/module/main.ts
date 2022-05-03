@@ -5,6 +5,8 @@ import { MortalSheet } from "./actor/mortal-sheet";
 import { GhoulSheet } from "./actor/ghoul-sheet";
 import { preloadTemplates } from "./preloadTemplates";
 import "svelte";
+import "@fortawesome/fontawesome-free";
+
 
 const SYSTEM_NAME = "vtmv5";
 
@@ -24,3 +26,9 @@ Hooks.once("init", async () => {
 
 	await preloadTemplates(SYSTEM_NAME);
 });
+
+Hooks.on("dropActorSheetData", (actor,sheet,data) => {
+	console.log(actor)
+	console.log(sheet)
+	console.log(data)
+})

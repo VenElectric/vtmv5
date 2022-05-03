@@ -3,7 +3,10 @@
   import { LocalizationStrings, KindredBase } from "./types";
   import ProfileImage from "./components/profile-image.svelte";
   import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/module.mjs";
-import DisciplineList from "./components/kindred/DisciplineList.svelte";
+  import DisciplineList from "./components/kindred/DisciplineList.svelte";
+  import TabNav from "./components/kindred/TabNav.svelte";
+  import WillPower from "./components/kindred/WillPower.svelte";
+  import Health from "./components/kindred/Health.svelte";
 
   const { actor, data } = sheetData;
   console.log(sheetData);
@@ -15,7 +18,15 @@ import DisciplineList from "./components/kindred/DisciplineList.svelte";
 </script>
 
 <div class="standard-information">
-  <ProfileImage actorImage={actor.img} actorName={actor.name} />
+  <div class="cage">
+    <ProfileImage actorImage={actor.img} actorName={actor.name} />
+    <div class="flex-row">
+      <button class="roll-button" name="rouse">Rouse</button>
+      <button class="roll-button" name="remorse">Remorse</button>
+      <button class="roll-button" name="will">Willpower</button>
+    </div>
+  </div>
+
   <div class="flex-row">
     <div class="flex-group-center">
       <label class="resource-label" for="concept"
@@ -93,7 +104,22 @@ import DisciplineList from "./components/kindred/DisciplineList.svelte";
   </div>
 </div>
 
+<div class="trackers-cage">
+  <Health healthValue={5} />
+  <WillPower willValue={5} />
+</div>
 
+<TabNav
+  actorData={{
+    traits: data.traits,
+    disciplines: "test",
+    advantages: "test",
+    blood_potency: "test",
+    inventory: "test",
+    bio: "test",
+    journal: "test",
+  }}
+/>
 
 <br />
 
@@ -105,7 +131,11 @@ import DisciplineList from "./components/kindred/DisciplineList.svelte";
   :global(.character > .window-content) {
     background: blue;
   }
-
+  :global(.cage) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
   label {
     color: rgb(60, 44, 199);
     font-size: 1.2rem;
@@ -116,14 +146,6 @@ import DisciplineList from "./components/kindred/DisciplineList.svelte";
   input {
     text-align: unset;
   }
-  /* textarea {
-    background: rgb(228, 7, 7);
-    margin-bottom: 1rem;
-  } */
-
-  /* .footer {
-    text-align: center;
-  } */
 
   .flex-row {
     display: grid;
@@ -131,7 +153,22 @@ import DisciplineList from "./components/kindred/DisciplineList.svelte";
     column-gap: 1em;
   }
   .standard-information {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1em;
+  }
+  .trackers-cage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1em;
+    margin-top: 2em;
+  }
+  .roll-button {
+    background-color: #F72119;
+    box-shadow: 2px 2px 3px #f72119, -2px -2px 3px red, -1px 3px 5px red, 1px -3px 4px red;
+    border: 0.4em red solid;
+  }
+  .roll-button:hover {
+    box-shadow: 2px 2px 3px rgb(116, 10, 10), -2px -2px 3px rgb(116, 10, 10), -1px 3px 5px rgb(116, 10, 10), 1px -3px 4px rgb(116, 10, 10);
   }
 </style>
