@@ -5,9 +5,6 @@
   function updateTraitValue(index: number, trait: TraitTypes) {
     const value = index + 1;
     const toLowerTrait = trait.toLowerCase()
-    console.log(trait)
-    console.log(traitValues)
-    console.log(traitValues[trait.toLowerCase()])
     if (value <= traitValues[trait]) {
       traitValues[trait] = value;
     } else {
@@ -20,6 +17,7 @@
 <div class="trait-cage">
   <div class="trait-flex">
     <span>{TraitTypes.Strength}</span>
+    <input type="number" id="strength" name="data.traits.strength" value={traitValues.strength} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -37,6 +35,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Dexteriy}</span>
+    <input type="number" id="dexterity" name="data.traits.dexterity" value={traitValues.dexterity} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -53,6 +52,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Stamina}</span>
+    <input type="number" id="stamina" name="data.traits.stamina" value={traitValues.stamina} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -69,6 +69,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Charisma}</span>
+    <input type="number" id="charisma" name="data.traits.charisma" value={traitValues.charisma} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -85,6 +86,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Composure}</span>
+    <input type="number" id="composure" name="data.traits.composure" value={traitValues.composure} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -101,6 +103,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Manipulation}</span>
+    <input type="number" id="manipulation" name="data.traits.manipulation" value={traitValues.manipulation} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -119,6 +122,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Intelligence}</span>
+    <input type="number" id="intelligence" name="data.traits.intelligence" value={traitValues.intelligence} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -137,6 +141,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Wits}</span>
+    <input type="number" id="wits" name="data.traits.wits" value={traitValues.wits} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -153,6 +158,7 @@
   </div>
   <div class="trait-flex">
     <span>{TraitTypes.Resolve}</span>
+    <input type="number" id="resolve" name="data.traits.resolve" value={traitValues.resolve} style="display:none;width:1%;" />
     <ul>
       <li class="trait-x">x</li>
       {#each Array(7) as i, index}
@@ -173,6 +179,10 @@
   ul {
     display: flex;
     list-style-type: none;
+    margin-top: 0;
+  }
+  .radio-test {
+    display: flex;
     margin-top: 0;
   }
   .trait-cage {

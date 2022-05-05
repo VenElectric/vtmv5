@@ -1,21 +1,34 @@
 <script lang="ts">
-  export let willValue: number;
+  export let willPower: {
+    value: number;
+    superficial: number;
+    aggravated: number;
+  };
+
+  //todo add feature for agg and superficial willpower
 
   function updateWill(index: number) {
-    if (index <= willValue) {
-      willValue = index;
+    if (index <= willPower.value) {
+      willPower.value = index;
     } else {
-      const difference = index - willValue;
-      willValue = willValue + difference;
+      const difference = index - willPower.value;
+      willPower.value = willPower.value + difference;
     }
   }
 </script>
 
 <div class="will-box">
   <h3>Willpower</h3>
+  <input
+    type="number"
+    id="willpower"
+    name="data.willpower.value"
+    value={willPower.value}
+    style="display:none;width:1%;"
+  />
   <ul>
     {#each Array(15) as i, index}
-      {#if willValue >= index + 1}
+      {#if willPower.value >= index + 1}
         <li
           on:click={() => updateWill(index + 1)}
           id={String(index + 1)}

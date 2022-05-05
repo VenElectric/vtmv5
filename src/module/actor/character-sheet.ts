@@ -1,7 +1,6 @@
 import KindredBaseSheet from "./kindred-base-sheet.svelte";
 import type { KindredBase } from "./types";
 import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/module.mjs";
-import type { Options } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/foundry.js/roll";
 
 export class CharacterSheet extends ActorSheet {
   app: any;
@@ -34,11 +33,17 @@ export class CharacterSheet extends ActorSheet {
     };
   }
 
+  // //@ts-ignore
+  // async _onSubmit(event, {updateData, preventClose, preventRender}) {
+  //   //@ts-ignore
+  //   await super._onSubmit(event,{updateData, preventClose, preventRender})
+  //   console.log(event)
+  //   console.log(updateData);
 
+  // }
   // Injects Svelte app when initializing HTML
   async _injectHTML(html) {
     await super._injectHTML(html);
-    console.log(html, "reloading page");
     this.app = new KindredBaseSheet({
       target: html.find("form")[0],
       props: {
@@ -49,8 +54,6 @@ export class CharacterSheet extends ActorSheet {
 
   // Injects Svelte app when replacing innerHTML
   async _replaceHTML(element, html) {
-    console.log(element, "element");
-    console.log(html, "html");
     await super._replaceHTML(element, html);
     this.app = new KindredBaseSheet({
       target: html.find("form")[0],

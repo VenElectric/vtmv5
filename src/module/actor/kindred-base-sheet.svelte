@@ -36,7 +36,7 @@
         type="text"
         id="concept"
         name="data.concept"
-        bind:value={data.concept}
+        value={data.concept}
       />
     </div>
     <div class="flex-group-center">
@@ -105,8 +105,8 @@
 </div>
 
 <div class="trackers-cage">
-  <Health healthValue={5} />
-  <WillPower willValue={5} />
+  <Health healthObject={data.health} />
+  <WillPower willPower={data.willpower} />
 </div>
 
 <TabNav
